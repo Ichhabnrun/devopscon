@@ -31,8 +31,9 @@
 						<configuration>
 							<target name="Stop Tomcat">
 								<echo message="Stopping Tomcat server"/>
-								<exec executable="/bin/bash">
-									<arg value="${tomcatLocation}/bin/shutdown.sh"/>
+								<exec executable="cmd">
+									<arg value="/c"/>
+									<arg value="${tomcatLocation}\bin\shutdown.bat"/>
 								</exec>
 							</target>
 						</configuration>
@@ -46,7 +47,7 @@
 						<configuration>
 							<target name="Deploy to Tomcat">
 								<echo message="Deploy to Tomcat (copy WAR file)"/>
-								<copy file="../build-war/target/helloworld.war" todir="${tomcatLocation}/webapps"/>
+								<copy file="../build-war/target/helloworld.war" todir="${tomcatLocation}\webapps"/>
 							</target>
 						</configuration>
 						<goals>
@@ -59,8 +60,9 @@
 						<configuration>
 							<target name="Start Tomcat">
 								<echo message="Starting Tomcat server"/>
-								<exec executable="/bin/bash">
-									<arg value="${tomcatLocation}/bin/startup.sh"/>
+								<exec executable="cmd">
+									<arg value="/c"/>
+									<arg value="${tomcatLocation}\bin\startup.bat"/>
 								</exec>
 							</target>
 						</configuration>
